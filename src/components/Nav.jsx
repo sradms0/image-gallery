@@ -5,7 +5,7 @@ export default props => (
   <nav className="main-nav">
     <ul>
       <li><NavLink onClick={() => props.search('cats')}to='/cats'>Cats</NavLink></li>
-      <li><NavLink onClick={() => props.search('dogs')}to='/dogs'>Cats</NavLink></li>
+      <li><NavLink onClick={() => props.search('dogs')}to='/dogs'>Dogs</NavLink></li>
       <li><NavLink onClick={() => props.search('computers')}to='/computers'>Computers</NavLink></li>
     </ul>
   </nav>
