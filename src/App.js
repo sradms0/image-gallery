@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import Nav from './components/Nav';
+import Header from './components/Header';
 import ImageList from './components/ImageList';
-import SearchForm from './components/SearchForm';
 import './App.css';
 import { Data } from './lib/Data';
 
@@ -31,8 +30,7 @@ export default class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <SearchForm search={this.search}/>
-          <Nav search={this.search}/>
+          <Header search={this.search}/>
           <ImageList images={this.state.images}/>
         </div>
       </BrowserRouter>
