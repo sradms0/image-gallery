@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class SearchForm extends Component {
+export default withRouter(class SearchForm extends Component {
   state = { value: '' };
 
   onChange = ({ target: {value} }) => this.setState({ value: value });
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.search(this.state.value);
+    const { history, search } = this.props;
+    const { value } = this.state;
+
+    history.push(`/search/${value}`);
+    search(value);
     this.setState({ value: '' });
   }
   
@@ -24,4 +29,4 @@ export default class SearchForm extends Component {
       </form>
     );
   }
-}
+});
