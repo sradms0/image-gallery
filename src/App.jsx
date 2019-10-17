@@ -20,7 +20,7 @@ export default withRouter(class App extends Component {
 
   // load data if history is being navigated 
   componentDidUpdate(prevProps) {
-    if (prevProps.location.pathname != this.props.location.pathname) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
       this.assertLifeCycleQuery();
     }
   }
