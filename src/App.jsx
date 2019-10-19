@@ -10,6 +10,7 @@ const data = new Data(process.env.REACT_APP_API_KEY);
 export default withRouter(class App extends Component {
   state = {
     query: '',
+    loading: true,
     images: []
   }
 
@@ -33,18 +34,25 @@ export default withRouter(class App extends Component {
 
   search = async (query='cats') => {
     try {
+      this.setState({loading:true});
       const { data: {photos} } = await data.search(query);
-      this.setState({query: query, images: photos.photo});
+      this.setState({query: query, loading: false, images: photos.photo});
     } catch(err) {
       console.log(err);
     }
+  }
+
+  // show loading status, then images when data is finished
+  displayHandler = () => {
+    if (this.state.loading) return (<p>Loading...</p>);
+    return (<ImageList images={this.state.images}/>);
   }
 
   render() {
     return (
       <div className="container">
         <Header search={this.search}/>
-        <ImageList images={this.state.images}/>
+        {this.displayHandler()}
         <Switch>
           <Route exact path='/'/>
           <Route path='/cats'/>
