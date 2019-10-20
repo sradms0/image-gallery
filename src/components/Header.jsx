@@ -6,7 +6,7 @@ export default props => {
   return (
     <div>
       <SearchForm search={props.search}/>
-      <Nav search={props.search}/>
+      <Nav defaultQueries={props.defaultQueries} search={props.search}/>
     </div>
   );
 }

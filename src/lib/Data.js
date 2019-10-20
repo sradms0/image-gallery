@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 export class Data {
-  constructor(apiKey) {
+  constructor(apiKey, defaultQueries) {
     this.apiKey = apiKey;
+    this.defaultQueries = defaultQueries;
+    this.queryFound = false;
   }
 
   async search(query) {
@@ -19,6 +21,11 @@ export class Data {
     } catch(err) {
       return err;
     }
+  }
+
+  assert(query) {
+    this.queryFound = query.includes('search') || this.defaultQueries.includes(query);
+    return this.queryFound;
   }
 
 }
