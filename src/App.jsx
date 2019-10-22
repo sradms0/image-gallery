@@ -57,7 +57,7 @@ export default withRouter(class App extends Component {
   // build routes from default queries from data inst.
   generateDefaultRoutes = () => {
     const routes = data.defaultQueries.map(dq => 
-      <Route key={dq} path={`/${dq}`}/>
+      <Route key={dq} exact path={`/${dq}`}/>
     );
     return routes;
   }
@@ -70,7 +70,7 @@ export default withRouter(class App extends Component {
         <Switch>
           <Route exact path='/'/>
           {this.generateDefaultRoutes()}
-          <Route path='/search/:id'/>
+          <Route exact path='/search/:id'/>
           <Route component={InvalidRoute}/>
         </Switch>
       </div>
