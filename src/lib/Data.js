@@ -24,7 +24,8 @@ export class Data {
   }
 
   assert(query) {
-    this.queryFound = query.includes('search') || this.defaultQueries.includes(query);
+    this.queryFound = /search\/\w+$|(\/$)/.test(query) || 
+                      this.defaultQueries.includes(query);
     return this.queryFound;
   }
 
