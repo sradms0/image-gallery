@@ -77,7 +77,7 @@ class App extends Component {
   displayHandler = () => {
     if (!data.queryFound) return null;
     if (this.state.loading) return (<p>Loading...</p>);
-    return (<ImageList images={this.state.images}/>);
+    return (<ImageList title={this.state.query} images={this.state.images}/>);
   }
 
   /**

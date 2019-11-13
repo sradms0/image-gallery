@@ -21,7 +21,12 @@ const ImageList = props => {
     else return (<NotFound/>);
   }
 
-  return (<div className='photo-container'>{display()}</div>);
+  return (
+    <div className='photo-container'>
+      <h2>{props.title}</h2>
+      {display()}
+    </div>
+  );
 }
 
 export default ImageList;
