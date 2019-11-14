@@ -48,7 +48,7 @@ export class Data {
    * @return {boolean} True if the query parameter is valid
    */
   assert(query) {
-    this.queryFound = /search\/\w+$|(\/$)/.test(query) || 
+    this.queryFound = /^search\/[^\/]+\/?$/.test(query) || 
                       this.defaultQueries.includes(query);
     return this.queryFound;
   }
