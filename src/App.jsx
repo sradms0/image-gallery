@@ -36,7 +36,6 @@ class App extends Component {
       this.assertLifeCycleQuery();
     }
   }
-
   
   /**
    * Set query for when app life cycle methods are run (DidUpdate, DidMount)
@@ -45,8 +44,7 @@ class App extends Component {
    */
   assertLifeCycleQuery = () => {
     const { location:{pathname} } = this.props,
-          query = pathname.split('/').pop();
-
+          query = pathname.split('/').filter(s => s).pop();
     if (query && data.assert(pathname.slice(1))) this.search(query);
     else this.setState({images: []});
   }
