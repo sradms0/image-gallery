@@ -3,6 +3,7 @@ import { withRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import ImageList from './components/ImageList';
 import InvalidRoute from './components/InvalidRoute';
+import LoadingIndicator from './components/LoadingIndicator';
 import './App.css';
 import { Data } from './lib/Data';
 import { default_queries } from './etc/data';
@@ -74,7 +75,7 @@ class App extends Component {
    */
   displayHandler = () => {
     if (!data.queryFound) return null;
-    if (this.state.loading) return (<p>Loading...</p>);
+    if (this.state.loading) return (<LoadingIndicator/>);
     return (<ImageList title={this.state.query} images={this.state.images}/>);
   }
 
