@@ -16,15 +16,10 @@ const ImageList = props => {
                key={imageItem.id}
     />);
 
-  const display = () => {
-    if (imageItems.length > 0) return (<ul>{imageItems}</ul>);
-    else return (<NotFound/>);
-  }
-
   return (
     <div className='photo-container'>
       <h2>{props.title}</h2>
-      {display()}
+      <ul>{imageItems.length > 0 ? imageItems: <NotFound/>}</ul>
     </div>
   );
 }
