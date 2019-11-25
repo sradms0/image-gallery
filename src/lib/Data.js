@@ -42,6 +42,18 @@ export class Data {
   }
 
   /**
+   * Creates a random pathname
+   *
+   * @method
+   * @return {string} Random pathname based on a random query from defaultQueries
+   */
+  randomPath() {
+    const { defaultQueries } = this;
+    const rand = Math.floor(Math.random()*defaultQueries.length);
+    return `/${defaultQueries[rand]}`;
+  }
+
+  /**
    * Checks that a query is valid pertaining to default routes, or for specific searching
    *
    * @param {string} query - Type of images to search for (in defaultQueries or specific search)

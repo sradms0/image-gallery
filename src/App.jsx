@@ -92,19 +92,6 @@ class App extends Component {
   }
 
   /**
-   * Creates a random pathname
-   *
-   * @method
-   * @return {string} Random pathname based on a random query from Data.defaultQueries
-   */
-  randomPath = () => {
-    const { defaultQueries } = data;
-    const rand = Math.floor(Math.random()*defaultQueries.length);
-    console.log(rand);
-    return `/${defaultQueries[rand]}`;
-  }
-
-  /**
    * Render application
    *
    * @return {ReactElement} Markup
@@ -115,7 +102,7 @@ class App extends Component {
         <Header defaultQueries={data.defaultQueries} search={this.search}/>
         {this.displayHandler()}
         <Switch>
-          <Route exact path='/'><Redirect to={this.randomPath()}/></Route>
+          <Route exact path='/'><Redirect to={data.randomPath()}/></Route>
           {this.generateDefaultRoutes()}
           <Route exact path='/search/:id'/>
           <Route component={InvalidRoute}/>
