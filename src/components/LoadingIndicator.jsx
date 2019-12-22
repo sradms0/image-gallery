@@ -6,6 +6,6 @@ import React from 'react';
  * @component 
  */
 
-const LoadingIndicator = () => (<div class="loader"></div>);
+const LoadingIndicator = () => (<div className="loader"></div>);
 
 export default LoadingIndicator;
