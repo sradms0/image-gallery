@@ -28,8 +28,7 @@ class SearchForm extends Component {
     e.preventDefault();
     const { history, search } = this.props;
     const { value } = this.state;
-
-    history.push(`/search/${value}`);
+    history.push(`/search/${value.replace(/\//gi, '-')}`);
     search(value);
     this.setState({ value: '' });
   }
