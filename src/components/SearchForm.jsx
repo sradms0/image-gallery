@@ -10,6 +10,13 @@ class SearchForm extends Component {
   state = { value: '' };
 
   /**
+   * Update component only when value of search field changes
+   */
+  shouldComponentUpdate(nextProps, nextState) { 
+    return nextState.value !== this.state.value;
+  }
+
+  /**
    * Updates `state.value` to match current input value
    *
    * @method

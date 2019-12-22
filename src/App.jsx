@@ -37,6 +37,14 @@ class App extends Component {
       this.assertLifeCycleQuery();
     }
   }
+
+  /**
+   * Update component only when loading state changes or navigating history
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.loading !== this.state.loading || 
+           nextProps.location.pathname !== this.props.location.pathname;
+  }
   
   /**
    * Set query for when app life cycle methods are run (DidUpdate, DidMount)
@@ -61,7 +69,6 @@ class App extends Component {
     try {
       this.setState({loading:true});
       const { data: {photos} } = await data.search(query);
-      console.log(photos.photo);
       this.setState({query: query, loading: false, images: photos.photo});
     } catch(err) {
       console.log(err);
@@ -97,6 +104,7 @@ class App extends Component {
    * @return {ReactElement} Markup
    */
   render() {
+    console.log('Rendering App');
     return (
       <div className="container">
         <Header defaultQueries={data.defaultQueries} search={this.search}/>
