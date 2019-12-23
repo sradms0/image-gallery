@@ -14,7 +14,7 @@
     ],
      "templates": {
       "better-docs": {
-          "name": "React-Gallery-Application"
+          "name": "Image Gallery"
         }
     },
     "opts": {
