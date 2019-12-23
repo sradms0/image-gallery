@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 /**
  * Component for displaying default queries through buttons
@@ -16,6 +17,11 @@ const Nav = props => {
     <li key={dq} ><NavLink onClick={() => props.search(dq)}to={`/${dq}`}>{dq}</NavLink></li>
   );
   return (<nav className="main-nav"><ul>{navLinks}</ul></nav>);
+}
+
+Nav.propTypes = { 
+  search: PropTypes.func.isRequired,
+  defaultQueries: PropTypes.array.isRequired
 }
 
 export default Nav;

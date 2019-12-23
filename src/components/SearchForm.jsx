@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 /**
  * A component for display a search field to retrieve image-data (should be wrapped in `withRouter`)
@@ -8,6 +9,8 @@ import { withRouter } from 'react-router-dom';
  */
 class SearchForm extends Component {
   state = { value: '' };
+  static propTypes = { search: PropTypes.func.isRequired };
+
 
   /**
    * Update component only when value of search field changes
