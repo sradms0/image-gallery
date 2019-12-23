@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Component for displaying an image
@@ -11,5 +12,7 @@ import React from 'react';
 const ImageItem = props => (
   <li><img src={props.url} alt='' /></li>
 );
+
+ImageItem.propTypes = { url: PropTypes.string.isRequired };
 
 export default ImageItem;

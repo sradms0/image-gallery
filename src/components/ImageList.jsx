@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageItem from './ImageItem';
 import NotFound from './NotFound';
+import PropTypes from 'prop-types';
 
 /**
  * Component for displaying a list of images
@@ -23,5 +24,7 @@ const ImageList = props => {
     </div>
   );
 }
+
+ImageList.propTypes = { images: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default ImageList;

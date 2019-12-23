@@ -21,7 +21,7 @@ const Nav = props => {
 
 Nav.propTypes = { 
   search: PropTypes.func.isRequired,
-  defaultQueries: PropTypes.array.isRequired
-}
+  defaultQueries: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 export default Nav;

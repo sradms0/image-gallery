@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Route, Redirect, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Header from './components/Header';
 import ImageList from './components/ImageList';
 import InvalidRoute from './components/InvalidRoute';
@@ -20,7 +21,13 @@ class App extends Component {
     query: '',
     loading: false,
     images: []
-  }
+  };
+
+  static propTypes = {  
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
 
   /**
    * Checks for url containing a query

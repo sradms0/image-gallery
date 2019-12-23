@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Nav';
 import SearchForm from './SearchForm';
+import PropTypes from 'prop-types';
 
 /**
  * Component for displaying the application header, encapsulating features
@@ -19,5 +20,10 @@ const Header = props => {
     </div>
   );
 }
+
+Header.propTypes = {
+  search: PropTypes.func.isRequired,
+  defaultQueries: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 export default Header;
