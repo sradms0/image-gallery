@@ -104,7 +104,6 @@ class App extends Component {
    * @return {ReactElement} Markup
    */
   render() {
-    console.log('Rendering App');
     return (
       <div className="container">
         <Header defaultQueries={data.defaultQueries} search={this.search}/>
